@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { validateLogin, setLoggedIn } from "../../helpers/auth";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validateLogin(username, password)) {
+    if (validateLogin(email, password)) {
       setLoggedIn();
       navigate("/admin");
     } else {
@@ -25,13 +25,13 @@ const Login = () => {
       <h2>Iniciar sesión</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Usuario</label>
+          <label htmlFor="email">Email</label>
           <input
-            id="username"
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Usuario"
+            id="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
           />
         </div>
 

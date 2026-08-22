@@ -1,8 +1,8 @@
-const ADMIN_USER = "admin";
-const ADMIN_PASS = "admin123";
+const ADMIN_EMAIL = import.meta.env.VITE_EMAIL;
+const ADMIN_PASSWORD = import.meta.env.VITE_PASSWORD;
 
-export const validateLogin = (username, password) => {
-  return username === ADMIN_USER && password === ADMIN_PASS;
+export const validateLogin = (email, password) => {
+  return email === ADMIN_EMAIL && password === ADMIN_PASSWORD;
 };
 
 export const setLoggedIn = () => {
