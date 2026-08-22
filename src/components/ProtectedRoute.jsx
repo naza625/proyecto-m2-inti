@@ -1,12 +1,14 @@
-import { Navigate } from "react-router-dom";
-import { isLoggedIn } from "../helpers/auth";
+import { Navigate, Outlet } from "react-router-dom";
+import { useAppContext } from "../context/AppContext";
 
-const ProtectedRoute = ({ children }) => {
-  if (!isLoggedIn()) {
+const ProtectedRoute = () => {
+  const { isAuthenticated } = useAppContext();
+
+  if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
 
-  return children;
+  return <Outlet />;
 };
 
 export default ProtectedRoute;

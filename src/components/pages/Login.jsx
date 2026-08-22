@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { validateLogin, setLoggedIn } from "../../helpers/auth";
+import { useAppContext } from "../../context/AppContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  const { login } = useAppContext();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validateLogin(email, password)) {
-      setLoggedIn();
+    if (login(email, password)) {
       navigate("/admin");
     } else {
       setError("Usuario o contraseña incorrectos");
