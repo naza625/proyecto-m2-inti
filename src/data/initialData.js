@@ -1,37 +1,160 @@
 const initialData = [
+  
+  // DESTACADA
+
+
   {
-    id: 1024,
-    nombre: "Neon Shadows",
-    descripcion: "En una ciudad futurista dominada por corporaciones, un detective descubre una conspiración que amenaza con destruir todo lo que conoce.",
-    categoria: "Ciencia Ficción",
-    imagen: "https://images.unsplash.com/photo-1536440136628-849c177e76a1",
+    id: 1001,
+    nombre: "La guerra de los últimos",
+    descripcion:
+      "En un mundo devastado por un virus mortal, un piloto superviviente intenta encontrar un propósito mientras enfrenta peligros, pérdidas y un futuro incierto.",
+    categoria: "Acción",
+    imagen: "/la-guerra-de-los-ultimos-vertical.jpg",
+    imagenHero: "/la-guerra-de-los-ultimos-horizontal.jpg",
     isFeatured: true,
     publicado: true,
   },
+
+
+  // TENDENCIAS
+  
+
   {
-    id: 1025,
-    nombre: "The Last Inquiry",
-    descripcion: "Un periodista investiga una serie de desapariciones que lo llevan a los rincones más oscuros de la ciudad.",
-    categoria: "Misterio / Noir",
-    imagen: "https://images.unsplash.com/photo-1478720568477-152d9b164e26",
-    isFeatured: false,
-    publicado: false,
-  },
-  {
-    id: 1026,
-    nombre: "Golden Empire",
-    descripcion: "La historia de un reino mágico y la joven que debe reclamar su trono para salvarlo de la oscuridad.",
-    categoria: "Fantasía",
-    imagen: "https://images.unsplash.com/photo-1518709268805-4e9042af2176",
+    id: 1002,
+    nombre: "El diablo viste a la moda 2",
+    descripcion:
+      "El mundo de la moda vuelve a poner a prueba ambiciones, relaciones y decisiones personales en una nueva etapa marcada por el poder y la competencia.",
+    categoria: "Tendencias",
+    imagen: "/posters/Poster_ElDiabloSeVisteALaModa2.png",
     isFeatured: false,
     publicado: true,
   },
+
   {
-    id: 1027,
-    nombre: "Risas al Límite",
-    descripcion: "Un grupo de amigos organiza la fiesta perfecta, pero todo sale mal de las formas más divertidas posibles.",
+    id: 1003,
+    nombre: "Golpe bajo: El juego final",
+    descripcion:
+      "Entre rivalidades, disciplina y segundas oportunidades, un grupo inesperado encuentra en el deporte una oportunidad para cambiar las reglas del juego.",
+    categoria: "Tendencias",
+    imagen: "/posters/Poster_GolpeBajo.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  {
+    id: 1004,
+    nombre: "Nando: Entre dos mundos",
+    descripcion:
+      "Nando queda atrapado entre dos realidades que lo obligan a enfrentar secretos, decisiones difíciles y una verdad capaz de cambiar su vida.",
+    categoria: "Tendencias",
+    imagen: "/posters/Poster_Nando.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  {
+    id: 1005,
+    nombre: "Alien: Romulus",
+    descripcion:
+      "Un grupo de jóvenes se enfrenta a una amenaza aterradora mientras explora los rincones más peligrosos y desconocidos del espacio.",
+    categoria: "Tendencias",
+    imagen: "/posters/Poster_AlienRomulus.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  
+  // ACCIÓN
+  
+
+  {
+    id: 1006,
+    nombre: "El botín",
+    descripcion:
+      "Una operación que parecía controlada se convierte en una peligrosa lucha por sobrevivir cuando aparecen secretos, traiciones y amenazas inesperadas.",
+    categoria: "Acción",
+    imagen: "/posters/Poster_ElBotin.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  {
+    id: 1007,
+    nombre: "Equipo demolición",
+    descripcion:
+      "Dos hombres con métodos extremos deben trabajar juntos en una misión cargada de persecuciones, explosiones y enemigos dispuestos a detenerlos.",
+    categoria: "Acción",
+    imagen: "/posters/Poster_EquipoDemolicion.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  {
+    id: 1008,
+    nombre: "Mortal Kombat II",
+    descripcion:
+      "Los guerreros vuelven a enfrentarse en un combate decisivo donde cada batalla puede definir el destino de los distintos reinos.",
+    categoria: "Acción",
+    imagen: "/posters/Poster_MortalKombat2.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  {
+    id: 1009,
+    nombre: "Psycho Killer",
+    descripcion:
+      "Una amenaza implacable desata una persecución marcada por el miedo, la violencia y una carrera desesperada por descubrir quién será la próxima víctima.",
+    categoria: "Acción",
+    imagen: "/posters/Poster_PsychoKiller.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  
+  // COMEDIA
+  
+
+  {
+    id: 1010,
+    nombre: "Bolas arriba",
+    descripcion:
+      "Una aventura descontrolada convierte el fútbol, la amistad y una serie de decisiones absurdas en una comedia llena de situaciones inesperadas.",
     categoria: "Comedia",
-    imagen: "https://images.unsplash.com/photo-1543584756-0d9d4f2f3f5c",
+    imagen: "/posters/Poster_BolasArriba.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  {
+    id: 1011,
+    nombre: "El ciudadano ilustre",
+    descripcion:
+      "Un reconocido escritor regresa a su pueblo natal y descubre que el homenaje que esperaba recibir puede convertirse en una experiencia mucho más incómoda.",
+    categoria: "Comedia",
+    imagen: "/posters/Poster_CiudadanoIlustre.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  {
+    id: 1012,
+    nombre: "Parque Lezama",
+    descripcion:
+      "Dos hombres muy diferentes construyen una inesperada amistad a partir de encuentros, conversaciones y pequeñas historias compartidas.",
+    categoria: "Comedia",
+    imagen: "/posters/Poster_ParqueLezama.png",
+    isFeatured: false,
+    publicado: true,
+  },
+
+  {
+    id: 1013,
+    nombre: "Turbulencia en la oficina",
+    descripcion:
+      "Una relación inesperada convierte la rutina laboral en una sucesión de enredos, decisiones impulsivas y momentos imposibles de ocultar.",
+    categoria: "Comedia",
+    imagen: "/posters/Poster_TurbulenciaEnLaOficina.png",
     isFeatured: false,
     publicado: true,
   },
