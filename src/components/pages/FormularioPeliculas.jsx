@@ -39,6 +39,36 @@ export default function FormularioPeliculas({ isOpen, onClose, onSubmit, movieTo
   }, [isOpen, movieToEdit, setValue, reset]);
 
   if (!isOpen) return null;
+  const handleFormSubmit = (data) => {
+    // Verificación de título duplicado
+    const cleanedTitle = data.titulo.trim().toLowerCase();
+    const isDuplicateTitle = moviesList.some(
+      (m) =>
+        m.titulo.trim().toLowerCase() === cleanedTitle &&
+        (!movieToEdit || m.id !== movieToEdit.id)
+    );
+
+    if (isDuplicateTitle) {
+      Swal.fire({
+        title: 'Título Duplicado',
+        text: 'Ya existe otra película con el mismo título en el catálogo.',
+        icon: 'error',
+        confirmButtonText: 'Corregir',
+      });
+      return;
+    }
+
+    // Construir objeto de película guardada — conservar ID al editar o generar UUID para nuevas películas
+    const savedMovie = {
+      ...data,
+      id: movieToEdit ? movieToEdit.id : crypto.randomUUID(),
+      titulo: data.titulo.trim(),
+      descripcion: data.descripcion.trim(),
+      tags: movieToEdit?.tags || (data.isFeatured ? ['4K HDR', 'Estreno Exclusivo'] : ['4K HDR', 'Nuevo'])
+    };
+
+    onSubmit(savedMovie);
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
