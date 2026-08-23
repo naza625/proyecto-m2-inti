@@ -40,7 +40,7 @@ const Navbar = ({ busqueda, setBusqueda }) => {
             placeholder="Buscar películas..."
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
-            className="bg-text-black px-4 py-2 rounded border border-yellow-400"  
+            className="bg-[#2f2f2f] text-white px-4 py-2 rounded border border-yellow-400"  
             />
         )}
         <button
