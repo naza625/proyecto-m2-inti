@@ -14,6 +14,29 @@ export default function FormularioPeliculas({ isOpen, onClose, onSubmit, movieTo
   } = useForm();
 
   const descripcionValue = watch('descripcion') || '';
+  useEffect(() => {
+    if (isOpen) {
+      if (movieToEdit) {
+        setValue('titulo', movieToEdit.titulo);
+        setValue('descripcion', movieToEdit.descripcion);
+        setValue('categoria', movieToEdit.categoria);
+        setValue('imageUrl', movieToEdit.imageUrl);
+        setValue('link', movieToEdit.link || '');
+        setValue('publicado', movieToEdit.publicado);
+        setValue('isFeatured', movieToEdit.isFeatured);
+      } else {
+        reset({
+          titulo: '',
+          descripcion: '',
+          categoria: 'Ciencia Ficción',
+          imageUrl: '',
+          link: '',
+          publicado: true,
+          isFeatured: false
+        });
+      }
+    }
+  }, [isOpen, movieToEdit, setValue, reset]);
 
   if (!isOpen) return null;
 
