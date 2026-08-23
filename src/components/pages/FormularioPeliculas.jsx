@@ -125,6 +125,46 @@ export default function FormularioPeliculas({ isOpen, onClose, onSubmit, movieTo
               </select>
             </div>
           </div>
+          {/* Campo URL de Imagen */}
+          <div className="space-y-1">
+            <label className="text-xs font-bold text-gray-400 block" htmlFor="form-image">
+              URL de Imagen
+            </label>
+            <input
+              id="form-image"
+              type="text"
+              placeholder="https://..."
+              className={`w-full bg-[#0c0a0f] text-sm rounded-lg px-4 py-2.5 border text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-gold-500/20 focus:border-gold-500/50 transition-all ${
+                errors.imageUrl ? 'border-red-500/50' : 'border-white/10'
+              }`}
+              {...register('imageUrl', {
+                required: 'La URL de imagen es obligatoria',
+                pattern: {
+                  value: /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/,
+                  message: 'Ingrese una URL válida (http/https)'
+                }
+              })}
+            />
+            {errors.imageUrl && (
+              <p className="text-[11px] text-red-400 font-medium block mt-0.5">
+                {errors.imageUrl.message}
+              </p>
+            )}
+          </div>
+
+          {/* Campo Link Externo (TMDB, tráiler, etc.) */}
+          <div className="space-y-1">
+            <label className="text-xs font-bold text-gray-400 block" htmlFor="form-link">
+              Link Externo (TMDB, tráiler, etc.)
+            </label>
+            <input
+              id="form-link"
+              type="text"
+              placeholder="https://www.themoviedb.org/movie/..."
+              className="w-full bg-[#0c0a0f] text-sm rounded-lg px-4 py-2.5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-gold-500/20 focus:border-gold-500/50 transition-all"
+              {...register('link')}
+            />
+          </div>
     
         </form>
       </div>
