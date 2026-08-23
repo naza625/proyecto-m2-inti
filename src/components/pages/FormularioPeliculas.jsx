@@ -94,7 +94,8 @@ export default function FormularioPeliculas({ isOpen, onClose, onSubmit, movieTo
         </div>
 
         {/* Cuerpo del Formulario */}
-        <form className="p-6 space-y-4">
+        <form onSubmit={handleSubmit(handleFormSubmit)} className="p-6 space-y-4">
+            
         {/* Campo Título */}
           <div className="space-y-1">
             <label className="text-xs font-bold text-gray-400 block" htmlFor="form-title">
