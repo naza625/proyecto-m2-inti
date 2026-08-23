@@ -165,6 +165,53 @@ export default function FormularioPeliculas({ isOpen, onClose, onSubmit, movieTo
               {...register('link')}
             />
           </div>
+          {/* Interruptores (Publicada y Destacada) */}
+          <div className="flex flex-wrap items-center gap-6 pt-2">
+            
+            {/* Interruptor Publicada */}
+            <label className="flex items-center gap-2 cursor-pointer select-none">
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  className="sr-only peer"
+                  {...register('publicado')}
+                />
+                <div className="w-11 h-6 bg-[#0c0a0f] border border-white/10 rounded-full peer peer-focus:ring-1 peer-focus:ring-gold-500/20 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-gray-400 peer-checked:after:bg-black peer-checked:bg-gold-400 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:border-gold-500" />
+              </div>
+              <p className="text-xs font-bold text-gray-300">Publicada</p>
+            </label>
+
+            {/* Interruptor Destacada */}
+            <label className="flex items-center gap-2 cursor-pointer select-none">
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  className="sr-only peer"
+                  {...register('isFeatured')}
+                />
+                <div className="w-11 h-6 bg-[#0c0a0f] border border-white/10 rounded-full peer peer-focus:ring-1 peer-focus:ring-gold-500/20 peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-gray-400 peer-checked:after:bg-black peer-checked:bg-gold-400 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:border-gold-500" />
+              </div>
+              <p className="text-xs font-bold text-gray-300">Destacada (Única)</p>
+            </label>
+
+          </div>
+
+          {/* Botones de Acción */}
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-white/5">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-5 py-2.5 rounded-lg border border-white/10 text-gray-400 hover:text-white hover:bg-white/5 text-sm font-semibold transition-all cursor-pointer"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              className="px-6 py-2.5 rounded-lg bg-gold-400 hover:bg-gold-500 text-black text-sm font-bold shadow-xl transition-all cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+            >
+              {movieToEdit ? 'Guardar Cambios' : 'Añadir Película'}
+            </button>
+          </div>
     
         </form>
       </div>
