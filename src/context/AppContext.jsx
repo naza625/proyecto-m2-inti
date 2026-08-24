@@ -1,41 +1,38 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import { loadMovies, saveMovies } from '../helpers/movieStorage';
-import {
-  isLoggedIn,
-  setLoggedIn,
-  logout as logoutHelper,
-  validateLogin,
-} from '../helpers/auth';
+import { createContext, useContext, useState, useEffect } from "react";
+import { loadMovies, saveMovies } from "../helpers/movieStorage";
+import { isLoggedIn, setLoggedIn, logout as logoutHelper, validateLogin } from "../helpers/auth";
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  // Asegurar evaluación booleana según cómo esté implementado auth helper
-  const [isAuthenticated, setIsAuthenticated] = useState(() => 
-    typeof isLoggedIn === 'function' ? isLoggedIn() : Boolean(isLoggedIn)
-  );
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return typeof isLoggedIn === 'function' ? isLoggedIn() : Boolean(isLoggedIn);
+  });
   const [movies, setMovies] = useState(() => loadMovies() || []);
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Sincronizar el estado de películas con LocalStorage ante cualquier cambio
   useEffect(() => {
     saveMovies(movies);
   }, [movies]);
 
-  // Login corregido: exige credenciales válidas
+  // Autenticación: Inicio de sesión
   const login = (email, password) => {
     if (email && validateLogin(email, password)) {
-      setLoggedIn(true);
+      setLoggedIn();
       setIsAuthenticated(true);
       return true;
     }
     return false;
   };
 
+  // Autenticación: Cierre de sesión
   const logout = () => {
     logoutHelper();
     setIsAuthenticated(false);
   };
 
+  // Manejadores CRUD de películas
   const addMovie = (newMovie) => {
     setMovies((prev) => {
       let updatedList = prev;
