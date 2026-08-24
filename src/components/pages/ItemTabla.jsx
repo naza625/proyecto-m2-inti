@@ -62,12 +62,25 @@ export default function ItemTabla({ movie, rowNumber, onEdit, onDelete, onToggle
           </label>
         </div>
       </td>
-
-
-
-
-
-
+          {/* Botones de Acción */}
+      <td className="px-6 py-4 text-right">
+        <div className="flex items-center justify-end gap-2">
+          <button
+            onClick={() => onEdit(movie)}
+            title="Editar"
+            className="p-2 rounded-lg bg-white/5 hover:bg-gold-500 hover:text-black text-gray-400 transition-all border border-white/5 cursor-pointer"
+          >
+            <Edit2 className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => onDelete(movie)}
+            title="Eliminar"
+            className="p-2 rounded-lg bg-white/5 hover:bg-red-600 hover:text-white text-gray-400 transition-all border border-white/5 cursor-pointer"
+          >
+            <Trash2 className="w-4 h-4" />
+          </button>
+        </div>
+      </td>
     </tr>
 
   );
