@@ -1,0 +1,87 @@
+import { Edit2, Trash2 } from 'lucide-react';
+
+export default function ItemTabla({ movie, rowNumber, onEdit, onDelete, onToggleStatus, onToggleFeatured }) {
+  const { id, titulo, imageUrl, categoria, publicado, isFeatured } = movie;
+
+  return (
+    <tr className="hover:bg-white/[0.02] transition-colors">
+      {/* Número de Fila */}
+      <td className="px-6 py-4 font-mono text-xs text-gray-500">
+        {rowNumber}
+      </td>
+
+      {/* Portada y Título */}
+      <td className="px-6 py-4">
+        <div className="flex items-center gap-3">
+          <img
+            src={imageUrl}
+            alt={titulo}
+            className="w-10 h-14 rounded object-cover border border-white/5 shadow"
+          />
+          <p className="font-bold text-white hover:text-gold-400 transition-colors">
+            {titulo}
+          </p>
+        </div>
+      </td>
+
+      {/* Categoría */}
+      <td className="px-6 py-4 font-medium text-gray-400">
+        {categoria}
+      </td>
+      
+      {/* Botón / Insignia de Estado (Publicado / Borrador) */}
+      <td className="px-6 py-4">
+        <button
+          onClick={() => onToggleStatus(id, publicado)}
+          title={`Clic para cambiar a ${publicado ? 'Borrador' : 'Publicado'}`}
+          className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold transition-all cursor-pointer border ${
+            publicado
+              ? 'bg-emerald-500/10 hover:bg-emerald-500/20 border-emerald-500/30 text-emerald-400 shadow-sm'
+              : 'bg-amber-500/10 hover:bg-amber-500/20 border-amber-500/30 text-amber-400 shadow-sm'
+          }`}
+        >
+          <div
+            className={`w-1.5 h-1.5 rounded-full ${
+              publicado ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'
+            }`}
+          />
+          {publicado ? 'Publicado' : 'Borrador'}
+        </button>
+      </td>
+          {/* Interruptor de Película Destacada */}
+      <td className="px-6 py-4 text-center">
+        <div className="inline-block">
+          <label className="relative inline-flex items-center cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={isFeatured}
+              onChange={() => onToggleFeatured(id, isFeatured)}
+              className="sr-only peer"
+            />
+            <div className="w-11 h-6 bg-[#0c0a0f] border border-white/10 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-gray-400 peer-checked:after:bg-black peer-checked:bg-gold-400 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:border-gold-500" />
+          </label>
+        </div>
+      </td>
+          {/* Botones de Acción */}
+      <td className="px-6 py-4 text-right">
+        <div className="flex items-center justify-end gap-2">
+          <button
+            onClick={() => onEdit(movie)}
+            title="Editar"
+            className="p-2 rounded-lg bg-white/5 hover:bg-gold-500 hover:text-black text-gray-400 transition-all border border-white/5 cursor-pointer"
+          >
+            <Edit2 className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => onDelete(movie)}
+            title="Eliminar"
+            className="p-2 rounded-lg bg-white/5 hover:bg-red-600 hover:text-white text-gray-400 transition-all border border-white/5 cursor-pointer"
+          >
+            <Trash2 className="w-4 h-4" />
+          </button>
+        </div>
+      </td>
+    </tr>
+
+  );
+}
