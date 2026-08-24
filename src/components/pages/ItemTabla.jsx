@@ -48,6 +48,21 @@ export default function ItemTabla({ movie, rowNumber, onEdit, onDelete, onToggle
           {publicado ? 'Publicado' : 'Borrador'}
         </button>
       </td>
+          {/* Interruptor de Película Destacada */}
+      <td className="px-6 py-4 text-center">
+        <div className="inline-block">
+          <label className="relative inline-flex items-center cursor-pointer select-none">
+            <input
+              type="checkbox"
+              checked={isFeatured}
+              onChange={() => onToggleFeatured(id, isFeatured)}
+              className="sr-only peer"
+            />
+            <div className="w-11 h-6 bg-[#0c0a0f] border border-white/10 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-gray-400 peer-checked:after:bg-black peer-checked:bg-gold-400 after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:border-gold-500" />
+          </label>
+        </div>
+      </td>
+
 
 
 
