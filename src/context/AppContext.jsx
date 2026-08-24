@@ -6,10 +6,10 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return typeof isLoggedIn === 'function' ? isLoggedIn() : Boolean(isLoggedIn);
+    return typeof isLoggedIn === "function" ? isLoggedIn() : Boolean(isLoggedIn);
   });
   const [movies, setMovies] = useState(() => loadMovies() || []);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Sincronizar el estado de películas con LocalStorage ante cualquier cambio
   useEffect(() => {
@@ -113,7 +113,7 @@ export const AppProvider = ({ children }) => {
 export const useAppContext = () => {
   const context = useContext(AppContext);
   if (!context) {
-    throw new Error('useAppContext debe usarse dentro de un AppProvider');
+    throw new Error("useAppContext debe usarse dentro de un AppProvider");
   }
   return context;
 };
