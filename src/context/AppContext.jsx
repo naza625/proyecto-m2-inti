@@ -123,6 +123,7 @@ export const useAppContext = () => {
     throw new Error('useAppContext debe usarse dentro de un AppProvider');
   }
   return context;
+  
 };
 
 export default AppContext;
