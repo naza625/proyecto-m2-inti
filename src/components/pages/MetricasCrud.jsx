@@ -47,7 +47,43 @@ export default function MetricasCrud({ peliculas = [], movies }) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-      {/* Las instancias de TarjetaMetrica se agregan en el siguiente commit */}
+      {/* Tarjeta de Total de Películas */}
+      <TarjetaMetrica
+        icono={Film}
+        titulo="Total Películas"
+        valor={total}
+        fondoIcono="bg-gold-500/10 border-gold-500/20"
+        colorIcono="text-gold-400"
+        colorBorde="bg-gradient-to-r from-gold-500 to-amber-500 opacity-20"
+        extra={
+          <div className="text-[10px] text-emerald-400 font-semibold flex items-center gap-1 mt-2">
+            <ArrowUpRight className="w-3.5 h-3.5" />
+            <p>+3 agregadas recientemente</p>
+          </div>
+        }
+      />
+
+      {/* Tarjeta de Películas Publicadas */}
+      <TarjetaMetrica
+        icono={CheckCircle}
+        titulo="Publicadas"
+        valor={publicadas}
+        subtitulo="Actualmente visibles en el catálogo"
+        fondoIcono="bg-emerald-500/10 border-emerald-500/20"
+        colorIcono="text-emerald-400"
+        colorBorde="bg-emerald-500 opacity-25"
+      />
+
+      {/* Tarjeta de Borradores */}
+      <TarjetaMetrica
+        icono={FileText}
+        titulo="Borradores"
+        valor={borradores}
+        subtitulo="Pendientes de revisión de contenido"
+        fondoIcono="bg-amber-500/10 border-amber-500/20"
+        colorIcono="text-amber-400"
+        colorBorde="bg-amber-500 opacity-25"
+      />
     </div>
   );
 }
