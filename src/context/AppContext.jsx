@@ -1,14 +1,39 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { loadMovies, saveMovies } from '../helpers/movieStorage';
+import {
+  isLoggedIn,
+  setLoggedIn,
+  logout as logoutHelper,
+  validateLogin,
+} from '../helpers/auth';
 
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn);
   const [movies, setMovies] = useState(() => loadMovies() || []);
+  const [searchQuery, setSearchQuery] = useState('');
 
+  // Sincronizar el estado de películas con LocalStorage ante cualquier cambio
   useEffect(() => {
     saveMovies(movies);
   }, [movies]);
+
+  // Autenticación: Inicio de sesión
+  const login = (email, password) => {
+    if (!email || validateLogin(email, password)) {
+      setLoggedIn(true);
+      setIsAuthenticated(true);
+      return true;
+    }
+    return false;
+  };
+
+  // Autenticación: Cierre de sesión
+  const logout = () => {
+    logoutHelper();
+    setIsAuthenticated(false);
+  };
 
   // Manejadores CRUD de películas
   const addMovie = (newMovie) => {
@@ -27,6 +52,7 @@ export const AppProvider = ({ children }) => {
   const editMovie = (updatedMovie) => {
     setMovies((prev) => {
       let updatedList = prev;
+      // Garantizar que solo haya un máximo de UNA película destacada
       if (updatedMovie.isFeatured) {
         updatedList = prev.map((m) =>
           m.id !== updatedMovie.id && m.isFeatured
@@ -73,8 +99,14 @@ export const AppProvider = ({ children }) => {
   };
 
   const value = {
+    isAuthenticated,
+    usuarioLogueado: isAuthenticated,
+    login,
+    logout,
     movies,
     setMovies,
+    searchQuery,
+    setSearchQuery,
     addMovie,
     editMovie,
     deleteMovie,
