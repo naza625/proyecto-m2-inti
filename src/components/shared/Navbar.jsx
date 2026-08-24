@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ busqueda, setBusqueda }) => {
  const [mostrarBuscador, setMostrarBuscador] = useState(false);
@@ -54,12 +55,14 @@ const Navbar = ({ busqueda, setBusqueda }) => {
     />
         </button>
 
-      <img
+      <Link to="/login">
+  <img    
     src="/usuario.png"
     alt="Usuario"
     className="w-10 h-10 object-contain"
   />
-      </div>
+  </Link>
+    </div>
     </nav>
   );
 };
