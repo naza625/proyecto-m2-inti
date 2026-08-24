@@ -23,7 +23,7 @@ const Admin = () => {
       <p>Películas cargadas: {movies.length}</p>
       <ul>
         {movies.map((movie) => (
-          <li key={movie.id}>{movie.nombre}</li>
+          <li key={movie.id}>{movie.titulo}</li>
         ))}
       </ul>
     </div>
