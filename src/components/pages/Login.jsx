@@ -12,6 +12,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError("");
 
     if (login(email, password)) {
       navigate("/admin");
