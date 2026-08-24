@@ -10,18 +10,20 @@ import {
 const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn);
+  // Asegurar evaluación booleana según cómo esté implementado auth helper
+  const [isAuthenticated, setIsAuthenticated] = useState(() => 
+    typeof isLoggedIn === 'function' ? isLoggedIn() : Boolean(isLoggedIn)
+  );
   const [movies, setMovies] = useState(() => loadMovies() || []);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Sincronizar el estado de películas con LocalStorage ante cualquier cambio
   useEffect(() => {
     saveMovies(movies);
   }, [movies]);
 
-  // Autenticación: Inicio de sesión
+  // Login corregido: exige credenciales válidas
   const login = (email, password) => {
-    if (!email || validateLogin(email, password)) {
+    if (email && validateLogin(email, password)) {
       setLoggedIn(true);
       setIsAuthenticated(true);
       return true;
@@ -29,17 +31,14 @@ export const AppProvider = ({ children }) => {
     return false;
   };
 
-  // Autenticación: Cierre de sesión
   const logout = () => {
     logoutHelper();
     setIsAuthenticated(false);
   };
 
-  // Manejadores CRUD de películas
   const addMovie = (newMovie) => {
     setMovies((prev) => {
       let updatedList = prev;
-      // Garantizar que solo haya un máximo de UNA película destacada
       if (newMovie.isFeatured) {
         updatedList = prev.map((m) =>
           m.isFeatured ? { ...m, isFeatured: false } : m
@@ -52,7 +51,6 @@ export const AppProvider = ({ children }) => {
   const editMovie = (updatedMovie) => {
     setMovies((prev) => {
       let updatedList = prev;
-      // Garantizar que solo haya un máximo de UNA película destacada
       if (updatedMovie.isFeatured) {
         updatedList = prev.map((m) =>
           m.id !== updatedMovie.id && m.isFeatured
@@ -89,7 +87,6 @@ export const AppProvider = ({ children }) => {
         if (m.id === id) {
           return { ...m, isFeatured: newFeaturedState };
         }
-        // Si activamos el estado destacado para esta película, desactivar las demás
         if (newFeaturedState) {
           return { ...m, isFeatured: false };
         }
@@ -100,7 +97,6 @@ export const AppProvider = ({ children }) => {
 
   const value = {
     isAuthenticated,
-    usuarioLogueado: isAuthenticated,
     login,
     logout,
     movies,
@@ -123,7 +119,6 @@ export const useAppContext = () => {
     throw new Error('useAppContext debe usarse dentro de un AppProvider');
   }
   return context;
-  
 };
 
 export default AppContext;
