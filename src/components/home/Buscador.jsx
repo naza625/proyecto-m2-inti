@@ -2,7 +2,7 @@ import TarjetaPelicula from "./TarjetaPelicula";
 
 const Buscador = ({ peliculas, busqueda }) => {
   const peliculasFiltradas = peliculas.filter((pelicula) =>
-    pelicula.nombre.toLowerCase().includes(busqueda.toLowerCase()),
+    pelicula.titulo.toLowerCase().includes(busqueda.toLowerCase()),
   );
 
   return (
@@ -12,7 +12,7 @@ const Buscador = ({ peliculas, busqueda }) => {
           <h2 className="text-3xl font-bold mb-8">
             Resultados para "{busqueda}"
           </h2>
-          <div className="flex flex-wrap justify-content gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {peliculasFiltradas.map((pelicula) => (
               <TarjetaPelicula key={pelicula.id} pelicula={pelicula} />
             ))}
