@@ -243,7 +243,7 @@ export default function FormularioPeliculas({
                   className="sr-only peer"
                   {...register("publicado")}
                 />
-                <div className="w-11 h-6 bg-[#27272a] rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white peer-checked:after:bg-black peer-checked:bg-yellow-400 after:rounded-full after:h-5 after:w-5 after:transition-all border border-white/10" />
+                <div className="w-11 h-6 bg-[#27272a] rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white peer-checked:after:bg-black peer-checked:bg-yellow-400 after:rounded-full after:h-5 after:w-5 after:transition-all border border-white/10" />
               </div>
               <span className="text-xs font-semibold text-gray-200">
                 Publicada
@@ -258,7 +258,7 @@ export default function FormularioPeliculas({
                   className="sr-only peer"
                   {...register("isFeatured")}
                 />
-                <div className="w-11 h-6 bg-[#27272a] rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white peer-checked:after:bg-black peer-checked:bg-yellow-400 after:rounded-full after:h-5 after:w-5 after:transition-all border border-white/10" />
+                <div className="w-11 h-6 bg-[#27272a] rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white peer-checked:after:bg-black peer-checked:bg-yellow-400 after:rounded-full after:h-5 after:w-5 after:transition-all border border-white/10" />
               </div>
               <span className="text-xs font-semibold text-gray-200">
                 Destacada (Única)

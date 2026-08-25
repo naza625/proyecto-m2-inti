@@ -55,14 +55,14 @@ const Navbar = ({ busqueda, setBusqueda }) => {
     />
         </button>
 
-      <Link to="/login">
-  <img    
-    src="/usuario.png"
-    alt="Usuario"
-    className="w-10 h-10 object-contain"
-  />
-  </Link>
-    </div>
+        <Link to="/admin" title="Panel de Administración">
+          <img
+            src="/usuario.png"
+            alt="Usuario / Admin"
+            className="w-10 h-10 object-contain"
+          />
+        </Link>
+      </div>
     </nav>
   );
 };

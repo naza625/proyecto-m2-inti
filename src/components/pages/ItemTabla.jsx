@@ -11,7 +11,7 @@ export default function ItemTabla({
   const { id, titulo, imageUrl, categoria, publicado, isFeatured } = movie;
 
   return (
-    <tr className="border-b border-[#232129]/60 hover:bg-white/[0.02] transition-colors">
+    <tr className="border-b border-[#232129]/60 hover:bg-white/2 transition-colors">
       {/* ID Enumerado Secuencial */}
       <td className="px-6 py-4 font-mono text-sm text-gray-400 whitespace-nowrap">
         {indexNumber}
@@ -19,11 +19,11 @@ export default function ItemTabla({
 
       {/* Portada y Título */}
       <td className="px-6 py-4">
-        <div className="flex items-center gap-3.5 min-w-[200px]">
+        <div className="flex items-center gap-3.5 min-w-50">
           <img
             src={imageUrl || "/logotipo_inti2.png"}
             alt={titulo}
-            className="w-10 h-14 rounded-md object-cover border border-white/10 shadow-sm bg-neutral-900 flex-shrink-0"
+            className="w-10 h-14 rounded-md object-cover border border-white/10 shadow-sm bg-neutral-900 shrink-0"
             onError={(e) => {
               e.target.src = "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=200&auto=format&fit=crop&q=80";
             }}
@@ -65,7 +65,7 @@ export default function ItemTabla({
               onChange={() => onToggleFeatured(id)}
               className="sr-only peer"
             />
-            <div className="w-11 h-6 bg-[#27272a] rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white peer-checked:after:bg-black peer-checked:bg-yellow-400 after:rounded-full after:h-5 after:w-5 after:transition-all border border-white/10" />
+            <div className="w-11 h-6 bg-[#27272a] rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white peer-checked:after:bg-black peer-checked:bg-yellow-400 after:rounded-full after:h-5 after:w-5 after:transition-all border border-white/10" />
           </label>
         </div>
       </td>
