@@ -2,56 +2,18 @@ import { Link } from "react-router-dom";
 
 const Error404 = () => {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#000000",
-        color: "#e2e2e2",
-        textAlign: "center",
-        padding: "2rem",
-        fontFamily: "Inter, sans-serif",
-      }}
-    >
-      <div style={{ fontSize: "3.5rem", marginBottom: "1rem" }}>🎬</div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-center px-8 font-[Inter]">
+      <div className="text-6xl mb-4">🎬</div>
 
-      <h1
-        style={{
-          fontFamily: "'Hanken Grotesk', sans-serif",
-          fontSize: "5rem",
-          fontWeight: 700,
-          margin: 0,
-          color: "#FFD700",
-          letterSpacing: "-0.02em",
-        }}
-      >
+      <h1 className="font-['Hanken_Grotesk'] text-8xl font-bold text-[#FFD700] tracking-tight m-0">
         404
       </h1>
 
-      <h2
-        style={{
-          fontFamily: "'Hanken Grotesk', sans-serif",
-          fontSize: "2rem",
-          fontWeight: 600,
-          margin: "0.5rem 0 1.5rem",
-          color: "#ffffff",
-        }}
-      >
+      <h2 className="font-['Hanken_Grotesk'] text-3xl font-semibold text-white mt-2 mb-6">
         ¡Corte! Escena no encontrada
       </h2>
 
-      <p
-        style={{
-          color: "#c7c7c7",
-          maxWidth: "480px",
-          marginBottom: "2.5rem",
-          lineHeight: "1.6",
-          fontSize: "1rem",
-        }}
-      >
+      <p className="text-[#c7c7c7] max-w-md mb-10 leading-relaxed">
         Parece que esta película no está en nuestro catálogo o el rollo de
         cinta se ha roto en el proyector. Revisa la URL o vuelve a la
         cartelera principal.
@@ -59,27 +21,7 @@ const Error404 = () => {
 
       <Link
         to="/"
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          backgroundColor: "#FFD700",
-          color: "#000000",
-          padding: "0.9rem 2.2rem",
-          borderRadius: "4px",
-          fontWeight: 700,
-          textDecoration: "none",
-          fontSize: "1.05rem",
-          transition: "all 0.2s ease",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow = "0 0 10px rgba(255, 215, 0, 0.6)";
-          e.currentTarget.style.transform = "scale(1.02)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.boxShadow = "none";
-          e.currentTarget.style.transform = "scale(1)";
-        }}
+        className="flex items-center gap-2 bg-[#FFD700] text-black px-9 py-3.5 rounded font-bold text-base no-underline transition-all duration-200 hover:shadow-[0_0_10px_rgba(255,215,0,0.6)] hover:scale-[1.02]"
       >
         🏠 Volver al Inicio
       </Link>
