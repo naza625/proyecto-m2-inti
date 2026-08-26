@@ -12,16 +12,30 @@ import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   return (
     <AppProvider>
-
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Inicio />} />
+          <Route path="/peliculas" element={<Inicio />} />
           <Route path="/login" element={<Login />} />
           <Route path="/detalle-pelicula/:id" element={<DetallePelicula />} />
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/admin" element={<Admin />} />
-          </Route>
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/:id"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
+
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
@@ -30,4 +44,3 @@ function App() {
 }
 
 export default App;
-
