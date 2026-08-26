@@ -11,7 +11,7 @@ const TarjetaPelicula = ({ pelicula }) => {
       
       
 
-      <h3 className="mt-2 text-white text-sm font-semibold">
+      <h3 className="mt-4 text-white text-sm font-semibold">
         {pelicula.titulo}
       </h3>
     </Link>
