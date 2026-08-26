@@ -1,4 +1,4 @@
-import { LuFilm, LuCircleCheck, LuFileText, LuTrendingUp } from "react-icons/lu";
+import { LuFilm, LuCircleCheck, LuFileText } from "react-icons/lu";
 
 function TarjetaMetrica({
   icono: Icono,
@@ -7,7 +7,6 @@ function TarjetaMetrica({
   subtitulo,
   colorIcono,
   fondoIcono,
-  extra,
 }) {
   return (
     <div className="bg-[#18161b] border border-[#26242c] rounded-2xl p-6 relative flex flex-col justify-between shadow-lg">
@@ -27,15 +26,13 @@ function TarjetaMetrica({
         </div>
       </div>
 
-      <div className="mt-4">
-        {extra ? (
-          extra
-        ) : (
+      {subtitulo && (
+        <div className="mt-4">
           <p className="text-xs text-gray-400 font-normal">
             {subtitulo}
           </p>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -59,12 +56,6 @@ export default function MetricasCrud({ peliculas = [], movies }) {
         valor={total}
         fondoIcono="bg-yellow-500/10 border-yellow-500/30"
         colorIcono="text-yellow-400"
-        extra={
-          <div className="text-xs text-emerald-400 font-medium flex items-center gap-1.5">
-            <LuTrendingUp className="w-4 h-4" />
-            <span>+12 este mes</span>
-          </div>
-        }
       />
 
       {/* Tarjeta de Películas Publicadas */}
