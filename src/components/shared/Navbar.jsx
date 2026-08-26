@@ -24,21 +24,21 @@ const Navbar = ({ busqueda, setBusqueda }) => {
         </div>
 
         <div className="flex gap-6 text-sm">
-          <a href="/" className="hover:text-yellow-400">
+          <Link to="/" className="hover:text-yellow-400">
             Inicio
-          </a>
+          </Link>
 
-          <a href="#" className="hover:text-yellow-400">
+          <Link to="/peliculas" className="hover:text-yellow-400">
             Películas
-          </a>
+          </Link>
 
-          <a href="#" className="hover:text-yellow-400">
+          <Link to="/series" className="hover:text-yellow-400">
             Series
-          </a>
+          </Link>
 
-          <a href="#" className="hover:text-yellow-400">
+          <Link to="/mi-lista" className="hover:text-yellow-400">
             Mi Lista
-          </a>
+          </Link>
         </div>
       </div>
 
