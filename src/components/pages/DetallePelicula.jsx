@@ -69,17 +69,25 @@ const DetallePelicula = () => {
               {peliculaEncontrada.titulo}
             </h1>
 
-            {(peliculaEncontrada.anio || peliculaEncontrada.genero) && (
-              <p className="mt-4">
-                {peliculaEncontrada.anio}
+            {(peliculaEncontrada.anio ||
+  peliculaEncontrada.duracion ||
+  peliculaEncontrada.genero) && (
+  <p className="mt-4">
+    {peliculaEncontrada.anio}
 
-                {peliculaEncontrada.anio &&
-                  peliculaEncontrada.genero &&
-                  " • "}
+    {peliculaEncontrada.anio &&
+      peliculaEncontrada.duracion &&
+      " • "}
 
-                {peliculaEncontrada.genero}
-              </p>
-            )}
+    {peliculaEncontrada.duracion}
+
+    {(peliculaEncontrada.anio || peliculaEncontrada.duracion) &&
+      peliculaEncontrada.genero &&
+      " • "}
+
+    {peliculaEncontrada.genero}
+  </p>
+)}
 
             <p className="mt-6">
               {peliculaEncontrada.descripcion}

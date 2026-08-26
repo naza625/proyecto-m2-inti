@@ -13,36 +13,38 @@ const Navbar = ({ busqueda, setBusqueda }) => {
   };
 
   return (
-    <nav className="bg-[#2f2f2f] text-white px-4 py-3 flex items-center justify-between border-b border-yellow-400">
+    <nav className="bg-black text-white px-6 py-4 flex items-center justify-between border-b-2 border-yellow-400 shadow-md">
       <div className="flex items-center gap-8">
-        <Link to="/" className="flex items-center gap-1">
-          <img
-            src="/logotipo_inti2.png"
-            alt="Logotipo de Inti"
-            className=" w-32 "
-          />
-        </Link>
-
-        <div className="flex gap-6 text-sm">
-          <Link to="/" className="hover:text-yellow-400">
-            Inicio
+        <div className="flex items-center gap-10">
+          <Link to="/">
+            <img
+              src="/logotipo_inti2.png"
+              alt="Logotipo de Inti"
+              className="w-40 object-contain"
+            />
           </Link>
 
-          <Link to="/peliculas" className="hover:text-yellow-400">
-            Películas
-          </Link>
+          <div className="flex flex-col md:flex-row gap-3 md:gap-10 text-base font-bold">
+            <Link to="/" className="hover:text-yellow-400">
+              Inicio
+            </Link>
 
-          <Link to="/series" className="hover:text-yellow-400">
-            Series
-          </Link>
+            <Link to="/peliculas" className="hover:text-yellow-400">
+              Películas
+            </Link>
 
-          <Link to="/mi-lista" className="hover:text-yellow-400">
-            Mi Lista
-          </Link>
+            <Link to="/series" className="hover:text-yellow-400">
+              Series
+            </Link>
+
+            <Link to="/mi-lista" className="hover:text-yellow-400">
+              Mi Lista
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-16">
         {mostrarBuscador && (
           <input
             type="text"
@@ -52,6 +54,7 @@ const Navbar = ({ busqueda, setBusqueda }) => {
             className="bg-[#2f2f2f] text-white px-4 py-2 rounded border border-yellow-400"
           />
         )}
+
         <button
           onClick={() => setMostrarBuscador(!mostrarBuscador)}
           className="cursor-pointer"
@@ -59,7 +62,7 @@ const Navbar = ({ busqueda, setBusqueda }) => {
           <img
             src="/buscador.png"
             alt="Buscar"
-            className="w-8 h-8 object-contain"
+            className="w-9 h-9 object-contain"
           />
         </button>
 
@@ -83,7 +86,7 @@ const Navbar = ({ busqueda, setBusqueda }) => {
             <img
               src="/usuario.png"
               alt="Usuario"
-              className="w-10 h-10 object-contain"
+              className="w-14 h-14 object-contain"
             />
           </Link>
         )}
