@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAppContext } from "../../context/AppContext";
 
 const Login = () => {
@@ -24,11 +24,13 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-black bg-[radial-gradient(ellipse_at_top,_#1a1a1a_0%,_#000000_60%),radial-gradient(ellipse_at_bottom,_#131313_0%,_#000000_70%)] [background-blend-mode:screen] font-[Inter] p-6">
       <div className="bg-[#131313] border border-[#2A2A2A] rounded-lg px-10 pt-10 pb-8 w-full max-w-[420px] text-center">
-        <img
-          src="/imagotipo_inti3.png"
-          alt="Inti"
-          className="w-[100px] block mx-auto mb-4"
-        />
+        <Link to="/">
+          <img
+            src="/imagotipo_inti3.png"
+            alt="Inti"
+            className="w-[100px] block mx-auto mb-4"
+          />
+        </Link>
 
         <h1 className="font-['Hanken_Grotesk'] font-bold text-3xl text-white mb-1">
           Bienvenido
