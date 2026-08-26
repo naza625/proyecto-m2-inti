@@ -55,7 +55,7 @@ const Navbar = ({ busqueda, setBusqueda }) => {
     />
         </button>
 
-        <Link to="/admin" title="Panel de Administración">
+        <Link to="/login" title="Panel de Administración">
           <img
             src="/usuario.png"
             alt="Usuario / Admin"
