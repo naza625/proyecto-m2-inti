@@ -15,7 +15,6 @@ export default function FormularioPeliculas({
     handleSubmit,
     setValue,
     reset,
-    watch,
     formState: { errors },
   } = useForm();
 
@@ -224,11 +223,40 @@ export default function FormularioPeliculas({
               }`}
               {...register("imageUrl", {
                 required: "La URL de imagen es obligatoria",
+                pattern: {
+                  value:
+                    /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\/\w .-]*)*\/?$/,
+                  message: "Ingrese una URL válida (http/https)",
+                },
               })}
             />
             {errors.imageUrl && (
               <p className="text-[11px] text-red-400 font-medium mt-1">
                 {errors.imageUrl.message}
+              </p>
+            )}
+          </div>
+
+          {/* Campo Link Externo */}
+          <div>
+            <label
+              htmlFor="form-link"
+              className="block text-xs font-semibold text-gray-300 mb-1.5"
+            >
+              Link Externo (TMDB, tráiler, etc.)
+            </label>
+            <input
+              id="form-link"
+              type="text"
+              placeholder="https://www.themoviedb.org/movie/..."
+              className={`w-full bg-[#100f14] text-sm rounded-lg px-4 py-2.5 border text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 transition-colors ${
+                errors.link ? "border-red-500/60" : "border-[#2c2a33]"
+              }`}
+              {...register("link")}
+            />
+            {errors.link && (
+              <p className="text-[11px] text-red-400 font-medium mt-1">
+                {errors.link.message}
               </p>
             )}
           </div>
