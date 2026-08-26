@@ -55,6 +55,7 @@ const Navbar = ({ busqueda, setBusqueda }) => {
             className="bg-[#2f2f2f] text-white px-4 py-2 rounded border border-yellow-400"
           />
         )}
+
         <button
           onClick={() => setMostrarBuscador(!mostrarBuscador)}
           className="cursor-pointer"
@@ -90,7 +91,6 @@ const Navbar = ({ busqueda, setBusqueda }) => {
             />
           </Link>
         )}
-
       </div>
     </nav>
   );
