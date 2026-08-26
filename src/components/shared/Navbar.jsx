@@ -15,13 +15,13 @@ const Navbar = ({ busqueda, setBusqueda }) => {
   return (
     <nav className="bg-[#2f2f2f] text-white px-4 py-3 flex items-center justify-between border-b border-yellow-400">
       <div className="flex items-center gap-8">
-        <div className="flex items-center gap-1">
+        <Link to="/" className="flex items-center gap-1">
           <img
             src="/logotipo_inti2.png"
             alt="Logotipo de Inti"
             className=" w-32 "
           />
-        </div>
+        </Link>
 
         <div className="flex gap-6 text-sm">
           <Link to="/" className="hover:text-yellow-400">
