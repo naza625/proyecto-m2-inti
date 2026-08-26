@@ -6,8 +6,8 @@ import Error404 from "./components/pages/Error404";
 
 import DetallePelicula from "./components/pages/DetallePelicula";
 
-import Admin from "./components/pages/Admin";
-import ProtectedRoute from "./components/ProtectedRoute";
+import Admin from "./components/pages/Admin"; 
+import ProtectedRoute from "./components/ProtectedRoute";   
 
 function App() {
   return (
@@ -19,9 +19,22 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/detalle-pelicula/:id" element={<DetallePelicula />} />
 
-          <Route element={<ProtectedRoute />}>
-            <Route path="/admin" element={<Admin />} />
-          </Route>
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/:id"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>
