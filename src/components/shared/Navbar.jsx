@@ -12,6 +12,7 @@ const Navbar = ({ busqueda, setBusqueda }) => {
     navigate("/");
   };
 
+
   return (
     <nav className="bg-black text-white px-6 py-4 flex items-center justify-between border-b-2 border-yellow-400 shadow-md">
       <div className="flex items-center gap-8">
