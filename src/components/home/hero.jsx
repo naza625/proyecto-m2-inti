@@ -19,7 +19,7 @@ const Hero = () => {
   to right,
   rgba(0, 0, 0, 0.45) 0%,
   rgba(0, 0, 0, 0.15) 55%,
-  rgba(0, 0, 0, 0.50) 100,
+  rgba(0, 0, 0, 0.50) 90%,
   rgba(0, 0, 0, 1) 100%
 ), url('${
   peliculaDestacada.imagenHero || peliculaDestacada.imageUrl

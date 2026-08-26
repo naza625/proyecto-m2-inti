@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAppContext } from "../../context/AppContext";
 
 const Navbar = ({ busqueda, setBusqueda }) => {
   const [mostrarBuscador, setMostrarBuscador] = useState(false);
+  const { isAuthenticated, logout } = useAppContext();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
 
   return (
     <nav className="bg-black text-white px-6 py-4 flex items-center justify-between border-b-2 border-yellow-400 shadow-md">
@@ -57,13 +66,31 @@ const Navbar = ({ busqueda, setBusqueda }) => {
           />
         </button>
 
-        <Link to="/login">
-          <img
-            src="/usuario.png"
-            alt="Usuario"
-            className="w-14 h-14 object-contain"
-          />
-        </Link>
+        {isAuthenticated ? (
+          <div className="flex items-center gap-3">
+            <Link
+              to="/admin"
+              className="text-sm hover:text-yellow-400 font-medium"
+            >
+              Admin
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="text-sm bg-yellow-400 text-black px-3 py-1.5 rounded font-medium hover:brightness-90 cursor-pointer"
+            >
+              Cerrar sesión
+            </button>
+          </div>
+        ) : (
+          <Link to="/login">
+            <img
+              src="/usuario.png"
+              alt="Usuario"
+              className="w-14 h-14 object-contain"
+            />
+          </Link>
+        )}
+
       </div>
     </nav>
   );

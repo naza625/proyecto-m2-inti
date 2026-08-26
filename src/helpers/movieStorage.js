@@ -16,7 +16,3 @@ export const loadMovies = () => {
 export const saveMovies = (movies) => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(movies));
 };
-
-export const generateId = () => {
-  return crypto.randomUUID();
-};
