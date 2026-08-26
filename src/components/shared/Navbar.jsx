@@ -1,68 +1,70 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({ busqueda, setBusqueda }) => {
- const [mostrarBuscador, setMostrarBuscador] = useState(false);
+  const [mostrarBuscador, setMostrarBuscador] = useState(false);
 
   return (
-    <nav className="bg-[#2f2f2f] text-white px-4 py-3 flex items-center justify-between border-b border-yellow-400">
+    <nav className="bg-black text-white px-6 py-4 flex items-center justify-between border-b-2 border-yellow-400 shadow-md">
       <div className="flex items-center gap-8">
-        <div className="flex items-center gap-1">
-          <img
-            src="/logotipo_inti2.png"
-            alt="Logotipo de Inti"
-            className=" w-32 "
-          />
-        </div>
+        <div className="flex items-center gap-10">
+          <Link to="/">
+            <img
+              src="/logotipo_inti2.png"
+              alt="Logotipo de Inti"
+              className="w-40 object-contain"
+            />
+          </Link>
 
-        <div className="flex gap-6 text-sm">
-          <a href="/" className="hover:text-yellow-400">
-            Inicio
-          </a>
+          <div className="flex flex-col md:flex-row gap-3 md:gap-10 text-base font-bold">
+            <Link to="/" className="hover:text-yellow-400">
+              Inicio
+            </Link>
 
-          <a href="#" className="hover:text-yellow-400">
-            Películas
-          </a>
+            <Link to="/peliculas" className="hover:text-yellow-400">
+              Películas
+            </Link>
 
-          <a href="#" className="hover:text-yellow-400">
-            Series
-          </a>
+            <Link to="/series" className="hover:text-yellow-400">
+              Series
+            </Link>
 
-          <a href="#" className="hover:text-yellow-400">
-            Mi Lista
-          </a>
+            <Link to="/mi-lista" className="hover:text-yellow-400">
+              Mi Lista
+            </Link>
+          </div>
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-16">
         {mostrarBuscador && (
           <input
             type="text"
             placeholder="Buscar películas..."
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
-            className="bg-[#2f2f2f] text-white px-4 py-2 rounded border border-yellow-400"  
-            />
+            className="bg-[#2f2f2f] text-white px-4 py-2 rounded border border-yellow-400"
+          />
         )}
         <button
           onClick={() => setMostrarBuscador(!mostrarBuscador)}
           className="cursor-pointer"
         >
           <img
-      src="/buscador.png"
-      alt="Buscar"
-      className="w-8 h-8 object-contain"
-    />
+            src="/buscador.png"
+            alt="Buscar"
+            className="w-9 h-9 object-contain"
+          />
         </button>
 
-      <Link to="/login">
-  <img    
-    src="/usuario.png"
-    alt="Usuario"
-    className="w-10 h-10 object-contain"
-  />
-  </Link>
-    </div>
+        <Link to="/login">
+          <img
+            src="/usuario.png"
+            alt="Usuario"
+            className="w-14 h-14 object-contain"
+          />
+        </Link>
+      </div>
     </nav>
   );
 };
