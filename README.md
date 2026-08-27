@@ -25,6 +25,8 @@ El proyecto propone una experiencia inspirada en plataformas de cine y streaming
 
 Además, cuenta con un área privada de administración desde donde se puede gestionar el catálogo mediante operaciones CRUD.
 
+
+
 ## ☀️ ¿Por qué elegimos el nombre INTI?
 
 Elegimos el nombre **INTI** porque hace referencia al dios del Sol en la cultura andina.
@@ -39,6 +41,10 @@ A partir de ese concepto desarrollamos una estética basada en:
 - Una identidad que busca diferenciar a INTI de otras plataformas audiovisuales.
 
 El nombre también permite vincular el proyecto con una referencia cultural latinoamericana y andina, aportándole una identidad propia.
+
+## 🌐 Demo
+
+La demo se puede ver en [INTI Cinema](https://inti-cinema.netlify.app/).
 
 ---
 
